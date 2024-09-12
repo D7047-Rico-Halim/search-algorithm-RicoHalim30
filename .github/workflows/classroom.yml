@@ -13,8 +13,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Python Test
-      id: python-test
+    - name: Pytest
+      id: pytest
       uses: classroom-resources/autograding-python-grader@v1
       with:
         timeout: 10
@@ -23,6 +23,6 @@ jobs:
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        PYTHON-TEST_RESULTS: "${{steps.python-test.outputs.result}}"
+        PYTEST_RESULTS: "${{steps.pytest.outputs.result}}"
       with:
-        runners: python-test
+        runners: pytest
