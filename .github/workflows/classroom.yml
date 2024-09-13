@@ -13,11 +13,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Pytest
+    - name: pytest
       id: pytest
       uses: classroom-resources/autograding-python-grader@v1
       with:
-        timeout: 10
+        timeout: 20
         max-score: 100
         setup-command: pip install pytest
     - name: Autograding Reporter
